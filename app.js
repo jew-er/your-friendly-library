@@ -45,7 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/catalog", catalogRouter);
-app.use(helmet()); //some basic security
+app.use(helmet()); //some basic protection
 
 
 

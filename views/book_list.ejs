@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet"> 
+  </head>
+  <body>
+    <% include layout.ejs %>
+    <div class="core-content">
+    <img class="bg-pic-blurred" src="/images/bg2.jpg">
+    <h2 class="core-h2"><%= title  %></h2>
+    <ul>
+      
+      <% book_list.forEach((book) => {
+      %>
+         <li class="core-li core-li-spaced">
+        <a class="core-a" href=<%= book.url %> >
+         <%= book.title %> 
+        </a>
+        <%= book.author.name %>
+        </li>
+      <%
+    }) %>
+    </ul>
+    </div>
+  </body>
+</html>

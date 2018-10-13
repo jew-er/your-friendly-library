@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet">
+  </head>
+  <body>
+    <% include layout.ejs %>
+    <div class="core-content"> 
+      <img src="/images/bg3.jpg" class="bg-pic-blurred">
+      <form method="POST" class="core-form" action="">
+        <label class="core-p" for="name"> Genre: </label>
+        <input class="core-input"type="text"
+          placeholder="Fantasy, Poetry ect."
+           name="name"
+           value= "<%= undefined===genre ? '' : genre.name %>"
+           >
+           <button class="core-btn-query" type="submit"> Submit </button>
+            
+           <% if(errors){ %>
+              <ul>
+              <% errors.forEach((error)=>{ %>
+                <li class="core-li"> <%= error.msg %> </li>
+              <% }) %>
+            
+            </ul>
+           <% } %>
+           
+      </form>
+    </div>
+    
+  </body>
+</html>

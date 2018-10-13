@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet">
+  </head>
+  <body>
+    <% include layout.ejs %>
+    <div class="core-content">
+      <img src="/images/bg5.jpg" class="bg-pic-blurred">
+      <form class="core-form" method="POST" action="">
+          <label class="core-p" for="book">  Book: </label>
+          <select class="core-input" type='select' placeholder="select book" name="book" required="true"> 
+              <% book_list.forEach(book=>{ %>
+                  <% if(bookinstance) { %> 
+                  <option 
+                  value=<%= book._id %>
+                <%= selected_book.toString()===book._id.toString() ? 'selected' : false %>
+                  > 
+                  
+                  <%= book.title %> 
+                  </option>
+
+                  <% } else {%>
+                  <option 
+                  value=<%= book._id %>
+                  > 
+                  
+                  <%= book.title %> 
+                  </option>
+                  <% } %>
+
+              <% }) %>
+          </select>
+
+
+            <label class="core-p" for="imprint">  Imprint: </label>
+              <input class="core-input"
+                  type="text"
+                  placeholder="publisher and date information"
+                  name="imprint"
+                  required="true"
+                  value="<%= undefined===bookinstance ? "" :  bookinstance.imprint %>"
+                  >
+              
+                  <label class="core-p" for="due_back">  Due back </label>
+                  <input  class="core-input"
+                          type="date"
+                          placeholder="Date when available"
+                          name="due_back"
+                          required="true"
+                          value="<%=bookinstance.due_back === undefined  ? '' : bookinstance.due_back.toISOString().substr(0,10) %>"
+                  >
+            <label class="core-p" for="name"> Status: </label>
+              <select class="core-input" type='select' placeholder='Select status' name='status' required='true' >
+                  <option  value="Maintenance" <%= undefined===bookinstance || bookinstance.status!='Maintenance' ? false:'selected' %> > Maintenance</option>
+                  <option value="Available" <%= undefined===bookinstance || bookinstance.status!='Available' ? false:'selected' %> >Available</option>
+                  <option value="Loaned" <%= undefined===bookinstance || bookinstance.status!='Loaned' ? false:'selected' %> >Loaned</option>
+                  <option value="Reserved" <%= undefined===bookinstance || bookinstance.status!='Reserved' ? false:'selected' %> >Reserved</option>
+              </select>
+            
+            <button class="core-btn-query" type="submit"> Submit </button>
+              
+            <% if(errors){ %>
+                <ul>
+                <% errors.forEach((error)=>{ %>
+                  <li class="core-li"> <%= error.msg %> </li>
+                <% }) %>
+              
+              </ul>
+            <% } %>
+            
+        
+      </form>
+    </div>
+   
+  </body>
+</html>

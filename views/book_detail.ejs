@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet">
+  </head>
+  <body>
+    <% include layout.ejs %>
+      <div class="core-content">
+        <img class="bg-pic-blurred" src="/images/bg5.jpg">
+        <h1 class="core-h1"><%= title  %></h1>
+        <h3 class="core-h3">Author: <a class="core-a" href= <%= book.author.url %> > <%= book.author.name %> </a> </h3>
+        <p class="core-p">Summary: <%= book.summary %> </p>
+
+          <% book_instances.forEach((item) => {
+          %>
+
+            <a href= <%= item.url %> class="core-a">
+            <%= item.book %>
+            </a>
+
+            
+            <p class="core-p">Status: <%= item.status %> </p>
+            <p class="core-p"> <%= item.imprint %> </p>
+            <p class="core-p"> <%= item.due_back %> </p>
+            
+            
+          <%
+        }) %>
+        <div class="core-row">
+        <a class="core-btn-a" href=<%=book.url + '/delete' %> ><button class="core-btn-delete"> Delete this book </button></a>
+        <a class="core-btn-a" href=<%=book.url + '/update' %> ><button class="core-btn-update"> Update this book </button></a>
+        </div>
+      </div>
+  </body>
+</html>

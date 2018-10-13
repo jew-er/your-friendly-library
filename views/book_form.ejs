@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet">
+  </head>
+  <body>
+    <% include layout.ejs %>
+    <div class="core-content">
+      <img src="/images/bg.jpg" class="bg-pic-blurred">
+      <form method="POST" class="core-form" action="">
+          <label for="title" class="core-p">  Title: </label>
+          <input type="text"
+            class="core-input"
+            placeholder="title"
+            name="title"
+            value="<%= undefined===book ? '' : book.title %>"
+            
+            >
+
+            <label for="author" class="core-p">  Author: </label>
+              <select class="core-input" name="author" type="select" required="true" placeholder="Select author">
+              <% authors.forEach(item=>{ %>
+                <% if(book) { %>
+                  <option value = "<%=item._id%>" selected="<%= item._id.toString()==book.author ? 'selected' : false %>" > 
+
+                  <%= item.name %>
+                
+                  </option>
+                    <% } else{ %>
+                  <option value="<%=item._id%>" > <%= item.name %> </option>
+                    <% } %>
+              <% }) %>
+              </select>
+            <label class="core-p" for="summary"> Summary: </label>
+          <textarea rows="4" cols="50" class="core-textarea" type="text"
+            placeholder="Summary"
+            name="summary"
+            value="<%= undefined===book ? '' : book.summary %>"
+            ><%= undefined===book ? '' : book.summary %></textarea>
+            <label class="core-p" for="name"> ISBN: </label>
+          <input class="core-input" type="text"
+            placeholder="ISBN13"
+            name="isbn"
+            value="<%= undefined===book ? '' : book.isbn %>"
+            
+            >
+            <div class="core-form-cb-group">
+            <% genres.forEach(item=>{  %>
+              <div class="core-form-cb-group-content">
+              <input 
+              class="core-input" type="checkbox"
+              name="genre"
+              value="<%= item.id %>"
+              <%= item.checked %>
+              >
+
+              <label class="core-p"> <%= item.name %> </label>
+              </div>
+            <% }) %>
+            </div>
+            <button class="core-btn-query" type="submit"> Submit </button>
+              
+            <% if(errors){ %>
+                <ul>
+                <% errors.forEach((error)=>{ %>
+                  <li class="core-li"> <%= error.msg %> </li>
+                <% }) %>
+              
+              </ul>
+            <% } %>
+      </form>
+    </div>
+    
+  </body>
+</html>

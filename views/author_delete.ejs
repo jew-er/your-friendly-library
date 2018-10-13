@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet">
+  </head>
+  <body>
+    <% include layout.ejs %>
+    <div class="core-content">
+        <img src="/images/bg4.jpg" class="bg-pic-blurred">
+        <h2 class="core-li"><%=author.name%></h1>
+        <h2 class="core-li"><%=author.lifespan%></h1>
+            <% if(author_books.length){ %>
+
+                <p class="core-p"> Delete the following books before attempting to delete this author. </p>
+                    <% author_books.forEach(item=>{ %>
+
+                        <h3 class="core-h3"><a href= <%= item.url %> > <%= item.title %> </a></h2>
+                        <p class="core-p"> <%=item.summary %> </p>
+
+                        
+
+                    <% }) %>
+            <% } else {  %>
+
+            <p class="core-p">Do you really want to delete this author?</p>
+            <form class="core-form" method="POST" action="">
+
+                <input type="hidden", name="authorid", required="true", value=<%=author._id %> >
+                <button class="core-btn-query" type="submit">Delete</button>
+
+            </form>
+        
+
+            <% } %>
+        </div>
+  </body>
+</html>

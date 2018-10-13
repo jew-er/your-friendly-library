@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet">
+  </head>
+  <body>
+    <% include layout.ejs %>
+    <div class="core-content">
+      <img class="bg-pic-blurred" src="/images/bg4.jpg">
+      <h2 class="core-h2"><%= title  %></h2>
+      <ul>
+        
+        <% genre_list.forEach((item) => {
+        %>
+          <li class="core-li core-li-spaced">
+          <a href=<%= item.url %> class="core-a">
+          <%= item.name %> 
+          </a>
+          </li>
+        <%
+      }) %>
+      </ul>
+    </div>
+  </body>
+</html>

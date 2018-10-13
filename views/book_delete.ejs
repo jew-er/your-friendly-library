@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet">
+  </head>
+  <body>
+    <% include layout.ejs %>
+    
+    <div class="core-content">
+        <img class="bg-pic-blurred" src="/images/bg9.jpeg">
+        <h2 class="core-h2"> <%=books.title %> </h2>
+        <p class="core-p"> <a class="core-a" href=<%= books.author.url %> ><%= books.author.name %></a> </p>
+        <p class="core-p">Summary: <%= books.summary %> </p>
+        <p class="core-p"> ISBN: <%= books.isbn %> </p>
+
+            <% if(bookinstances.length){ %>
+
+                <h3 class="core-h3"> The following copies must be deleted first: </h3>
+                    <% bookinstances.forEach(item=>{ %>
+
+                        <h2 class="core-h2"><a class="core-a" href= <%= item.url %> > Link to Copy </a></h2>
+                        <p class="core-p"> Imprint: <%=item.imprint %> </p>
+
+                        <% if(item.status==="Available") {  %>
+                        <p class="core-p core-available"> <%=item.status %> </p>
+
+                        <% } else if (item.status==="Maintenance") { %>
+                        <p class="core-p core-maintenance"> <%=item.status %> </p>
+                        
+                        <% } else { %>
+                        <p class="core-p core-other"> <%=item.status %> </p>
+                        <% } %>
+
+                    <% }) %>
+            <% } else {  %>
+            <p class="core-p"> Delete this book? </p>
+            <form class="core-form" method="POST" action="">
+
+                <input type="hidden", name="bookid", required="true", value=<%=books._id %> >
+                <button class="core-btn-query" type="submit">YES</button>
+
+            </form>
+            <% } %>
+        </div>
+   
+  </body>
+</html>

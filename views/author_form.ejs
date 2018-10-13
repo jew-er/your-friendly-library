@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet">
+  </head>
+  <body>
+    <% include layout.ejs %>
+    <div class="core-content">
+      <img src="/images/bg2.jpg" class="bg-pic-blurred">
+      <form method="POST" class="core-form" action="">
+
+          <label class="core-p" for="name">  first name: </label>
+          <input class="core-input" type="text"
+            placeholder="first_name"
+            name="first_name"
+            value= "<%= undefined===author ? '' : author.first_name %>"
+            
+            >
+
+            <label class="core-p" for="name">  family name: </label>
+          <input class="core-input" type="text"
+            placeholder="family_name"
+            name="family_name"
+            value= "<%= undefined===author ? '' : author.family_name %>"
+            >
+            <label class="core-p" for="name"> Date of birth: </label>
+          <input class="core-input" type="date"
+            placeholder="dd/mm/yyyy"
+            name="date_of_birth"
+            value= <%= undefined===author.date_of_birth ? '' : author.date_of_birth.toISOString().substr(0,10) %>
+              
+            >
+            <label class="core-p" for="name"> Date of death: </label>
+          <input class="core-input" type="date"
+            placeholder="dd/mm/yyyy"
+            name="date_of_death"
+            value= <%= undefined===author.date_of_death || null===author.date_of_death ? '' : author.date_of_death.toISOString().substr(0,10) %>
+            
+            >
+            <button class="core-btn-query" type="submit"> Submit </button>
+              
+            <% if(errors){ %>
+                <ul>
+                <% errors.forEach((error)=>{ %>
+                  <li class="core-li"> <%= error.msg %> </li>
+                <% }) %>
+              
+              </ul>
+            <% } %>
+            
+            
+      </form>
+    </div>
+  </body>
+</html>

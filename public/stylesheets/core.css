@@ -1,0 +1,182 @@
+.core-h1 {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 20px;
+}
+
+.core-h2 {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 20px;
+}
+
+.core-h3 {
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+.core-p {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  width: 400px;
+  margin:10px;
+}
+.core-li {
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+.core-a {
+  color: springgreen;
+  font-family: "Roboto", sans-serif;
+}
+.core-li-spaced {
+  margin-bottom: 10px;
+}
+
+.bg-pic {
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transform: scale(1.1);
+}
+.bg-pic-blurred {
+  filter: blur(10px);
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transform: scale(1.1);
+  pointer-events:none;
+}
+
+.core-content {
+  padding-top: 100px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+/* These classes are designed for styling the book status */
+.core-available {
+  color: lightskyblue;
+}
+
+.core-maintenance {
+  color: lightcoral;
+  
+}
+
+.core-other {
+  color: whitesmoke;
+}
+
+.core-btn-a {
+  text-decoration: none;
+}
+
+.core-btn-update {
+  border: none;
+  background: lightseagreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 40px;
+  cursor: pointer;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.core-btn-delete {
+  border: none;
+  background: lightcoral;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 40px;
+  cursor: pointer;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.core-row{
+  display:flex;
+}
+
+.core-btn-query{
+  background: mediumslateblue;
+  color: white;
+  border:none;
+  padding:10px;
+  font-size: 1.3em;
+  font-family: "Roboto", sans-serif;
+  width: 50%;
+
+}
+
+.core-input{
+  border:none;
+  background: white;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  width:60%;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 1.4em;
+  padding-left: 10px;
+}
+.core-textarea{
+  border:none;
+  background: white;
+  color: black;
+  width:60%;
+  font-family: "Roboto", sans-serif;
+  padding-left: 10px;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+
+.core-form{
+  display:flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+  align-items:center;
+  text-align: center;
+}
+
+.core-form-cb-group{
+  display:flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  height:auto;
+  width: 60%;
+
+}
+
+.core-form-cb-group-content{
+  width: 50%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content: center;
+}
+
+.core-form-cb-group-content input{
+  width: 20px
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet">
+  </head>
+  <body>
+    <% include layout.ejs %>
+    <div class="core-content">
+      <img src="/images/bg7.jpg" class="bg-pic-blurred"> 
+      <h1 class="core-h1"><%= title  %></h1>
+
+        <% genre_books.forEach((item) => {
+        %>
+          <a class="core-a" href= <%= item.url %> > <h3> <%= item.title %> </h1> </a>
+          <p class="core-p"> Summary: <%= item.summary %> </p>
+        <%
+      }) %>
+
+      <div class="core-row">
+        <a class="core-btn-a" href=<%=genre.url + '/delete' %> ><button class="core-btn-delete"> Delete this genre </button></a>
+        <a class="core-btn-a" href=<%=genre.url + '/update' %> ><button class="core-btn-update"> Update this genre </button></a>
+        </div>
+    </div>
+
+  </body>
+</html>

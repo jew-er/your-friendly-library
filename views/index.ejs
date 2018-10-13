@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet"> 
+  </head>
+  <body>
+  <img class="bg-pic-blurred" src="/images/bg.jpg">
+    <% include layout.ejs %>
+  <div class="core-content">
+    <h2 class="core-h2"><%= title  %></h1>
+    <ul class="core-ul">
+      <li class="core-li">Book count:<%= data.book_count  %></li>
+      <li class="core-li">Books in store: <%= data.book_instance_count  %></li>
+      <li class="core-li">Available books: <%= data.book_instance_available_count  %></li>
+      <li class="core-li">Number of Authors: <%= data.author_count  %></li>
+      <li class="core-li">Number of Genres: <%= data.genre_count  %></li>
+    </ul>
+    </div>
+  </body>
+</html>
+ 

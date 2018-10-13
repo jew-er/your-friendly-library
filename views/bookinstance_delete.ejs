@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet">
+  </head>
+  <body>
+    <% include layout.ejs %>
+    <div class="core-content">
+        <img src="/images/bg6.jpg" class="bg-pic-blurred">
+        <h2 class="core-h2"> <%=bookinstances.book.title %> </h2>
+        <p class="core-p">Summary:<%= bookinstances.book.summary %> </p>
+        <p class="core-p">ISBN: <%= bookinstances.book.isbn %> </p>
+        <p class="core-p">Imprint: <%= bookinstances.imprint %> </p>
+
+        <%if(bookinstances.status==="Maintenance"){ %>
+            <p class="core-maintenance"> <%= bookinstances.status %> </p>
+        <% } else if(bookinstances.status==="Available"){ %>
+            <p class="core-available"> <%= bookinstances.status %> </p>
+        <%} else { %>
+            <p class="core-p core-other">Status: <%= bookinstances.status %> </p>
+        <% } %>
+        <p class="core-p core-other"> Due back: <%= bookinstances.due_back_formatted %> </p>
+
+
+            
+            <form class="core-form" method="POST" action="">
+
+                <input type="hidden", name="bookinstanceid", required="true", value=<%=bookinstances._id %> >
+
+                <button class="core-btn-query"type="submit">Delete</button>
+
+            </form>
+        </div>
+   
+  </body>
+</html>

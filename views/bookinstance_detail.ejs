@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet">
+  </head>
+  <body>
+    <% include layout.ejs %>
+    <div class="core-content">
+      <img src="/images/bg8.jpg" class="bg-pic-blurred">
+      <h2 class="core-h2">
+      <a class="core-a" href= <%= bookinstance.book.url %> >
+         <%= title %>
+      </a>
+      </h2>
+      <h3 class="core-h3"> Imprint: </h3>
+      <p class="core-p">Imprint : <%= bookinstance.imprint %> </p>
+      <h3 class="core-h3"> Summary: </h3>
+      <p class="core-p"> <%=bookinstance.book.summary %> </p>
+      
+  <% if(bookinstance.status=="Available") { %> 
+      <p class="core-p core-p" >Status: <span class="core-available"> <%= bookinstance.status %> </span></p>
+
+      <% } %>
+
+      <% if(bookinstance.status=="Maintenance") { %> 
+      <p class="core-p core-p">Status: <span class="core-maintenance"> <%= bookinstance.status %> </span></p>
+
+      <% } %>
+
+      <% if(bookinstance.status!="Available" & bookinstance.status!="Maintenance") { %> 
+      <p class="core-p core-other"> Due back:<%= bookinstance.due_back_formatted %></p>
+      <p class="core-p core-other">Status: <%= bookinstance.status %> </p>
+      <% } %>
+
+      <div class="core-row">
+      <a class="core-btn-a" href=<%=bookinstance.url + '/delete' %> ><button class="core-btn-delete"> Delete this copy </button></a>
+        <a class="core-btn-a" href=<%=bookinstance.url + '/update' %> ><button class="core-btn-update"> Update this copy </button></a>
+      </div>
+    </div>
+    
+  </body>
+</html>

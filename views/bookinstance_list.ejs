@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet">
+  </head>
+  <body>
+    <% include layout.ejs %>
+    <div class="core-content">
+      <img class="bg-pic-blurred" src="/images/bg5.jpg">
+      <h2 class="core-h2"><%= title  %></h2>
+      <ul>
+        
+        <% bookinstance_list.forEach((item) => {
+        %>
+          <li class="core-li core-li-spaced">
+          <a href= <%= item.url %> class="core-a">
+          <%= item.book.title %> 
+          <%= item.imprint %>
+          </a>
+            <%if (item.status == 'Available') { %>
+        <span class="core-available"><%= item.status %></span>
+          <% } %>
+
+          <%if (item.status == 'Maintenance') { %>
+        <span class="core-maintenance"><%= item.status %></span>
+          <% } %>
+
+          <%if (item.status != 'Available' && item.status!='Maintenance') { %>
+        <span class="core-other"> <%= item.status%> Due: <%= item.due_back_formatted %></span>
+          <% } %>
+
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/core.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet">
+  </head>
+  <body>
+    <% include layout.ejs %>
+    
+    <div class="core-content">
+    <img src="/images/bg4.jpg" class="bg-pic-blurred">
+    <h2 class="core-h2"> <%=genre.name%></h2>
+        <% if(books.length){ %>
+
+            <p class="core-p"> Delete the following books before attempting to delete this genre. </p>
+                <% books.forEach(item=>{ %>
+
+                    <h2 class="core-h2"><a href= <%= item.url %> > <%= item.title %> </a></h2>
+                    <p class="core-p"> <%=item.summary %> </p>
+
+                    
+
+                <% }) %>
+        <% } else {  %>
+
+        <form class="core-form" method="POST" action="">
+
+            <input type="hidden", name="genreid", required="true", value=<%=genre._id %> >
+
+            <button class="core-btn-query" type="submit">Delete</button>
+
+        </form>
+    
+
+        <% } %>
+    </div>
+   
+  </body>
+</html>

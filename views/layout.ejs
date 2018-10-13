@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset.css' />
+    <link rel='stylesheet' href='/stylesheets/navbar.css' />
+    <link href="https://fonts.googleapis.com/css?family=Krub:200|Roboto:300" rel="stylesheet"> 
+    <link 
+      rel="stylesheet" 
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous">
+       <script type="text/javascript"src='/scripts/navbar.js' defer></script>
+  </head>
+ 
+  <body>
+        
+        <div class="navbar">
+            <div class="navbtn">
+                <div class="navslash1"></div>
+                <div class="navslash2"></div>
+                <div class="navslash3"></div>
+            </div>
+            <ul>
+                <li class="navitem">
+                    <a href="/catalog/books">Books</a>
+                </li>
+                    
+                <li class="navitem">
+                    <a href="/catalog/authors">Authors</a>
+                </li>
+
+                <li class="navitem">
+                    <a href="/catalog/genres">Genres</a>
+                </li>
+                
+                <li class="navitem">
+                    <a href="/catalog/bookinstances">In store</a>
+                </li>
+
+                <li class="navitem">
+                   <div class="nav-dropdown"> Create <span><i class="nav-arrow fas fa-angle-up"></i></span></div>
+                   <div class="nav-submenu">
+                        <p class="nav-submenu-item"><a href="/catalog/book/create">Book</a></p>
+                        <p class="nav-submenu-item"><a href="/catalog/author/create">Author</a></p>
+                        <p class="nav-submenu-item"><a href="/catalog/genre/create">Genre</a></p>
+                        <p class="nav-submenu-item"><a href="/catalog/bookinstance/create">Copy</a></p>
+                   </div>
+                </li>
+                
+            </ul>
+        </div>
+        
+  </body>
+
+
+</html>

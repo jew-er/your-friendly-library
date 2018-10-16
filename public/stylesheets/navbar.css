@@ -6,7 +6,7 @@
 position: fixed;
 left:0;
 top:0;
-background: darkturquoise;
+background: darkslateblue; 
 width: 0px;
 height: 100%;
 transition: width 0.2s ease-in;
@@ -46,13 +46,15 @@ margin-top: 50px;
 }
 .navitem:before{
     content:"";
-    border-bottom: 1px solid white;
-    background: red;
-    width: 0%;
-    position: absolute;
-    transform: translate(-24px,30px);
+    border-bottom: 1px solid mediumspringgreen;
+    /* background: linear-gradient( 45deg, mediumspringgreen 10%, transparent); */
+    width:0;
+    height:1px;
+    position: relative;
+    top: 25px;
     transition:width 0.1s ease-in;
     pointer-events:none;
+    display:block;
 
 }
 

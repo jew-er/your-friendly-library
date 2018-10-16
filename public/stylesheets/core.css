@@ -58,7 +58,7 @@
 }
 
 .core-content {
-  padding-top: 100px;
+  padding-top: 5vh;
   width: 100%;
   height: 100%;
   display: flex;
@@ -133,9 +133,9 @@
   background: white;
   color: black;
   font-family: "Roboto", sans-serif;
-  width:60%;
+  width:75%;
   height: 30px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 1.4em;
   padding-left: 10px;
 }
@@ -147,13 +147,13 @@
   font-family: "Roboto", sans-serif;
   padding-left: 10px;
   padding-left: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .core-form{
   display:flex;
   flex-direction: column;
-  width: 60%;
+  width: 70%;
   height: 100%;
   align-items:center;
   text-align: center;
@@ -179,4 +179,11 @@
 
 .core-form-cb-group-content input{
   width: 20px
+}
+
+@media only screen and (max-width: 600px) {
+    .core-input, .core-textarea{
+      font-size: 0.8em;
+      width: 100%;
+    }
 }

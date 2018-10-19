@@ -30,7 +30,7 @@
           <input class="core-input" type="date"
             placeholder="dd/mm/yyyy"
             name="date_of_birth"
-            value= <%= undefined===author.date_of_birth ? '' : author.date_of_birth.toISOString().substr(0,10) %>
+            value= "<%= undefined===author.date_of_birth  || null===author.date_of_birth ? '' : author.date_of_birth.toISOString().substr(0,10) %>"
               
             >
             <label class="core-p" for="name"> Date of death: </label>

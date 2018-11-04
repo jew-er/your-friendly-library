@@ -65,4 +65,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.use('/', express.static(path.join(__dirname, 'static'), {
+  setHeaders: function (res) {
+    res.setHeader('Content-Type', 'text/html');
+    console.log(res.get('Content-Type')); // 'text/html'
+  }
+}));
+
 module.exports = app;
